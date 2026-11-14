@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://landing.adzkalabs.id/sitemap.xml
+Sitemap: https://studio.adzkalabs.id/sitemap.xml
