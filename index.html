@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADZKALABS STUDIO · Panel dan studio siaran untuk TikTok Live</title>
+<meta name="description" content="Pantau komentar, gift, dan penonton, lalu siaran ke TikTok Live langsung dari PC dalam satu aplikasi Windows. Coba gratis 7 hari.">
+<meta property="og:title" content="ADZKALABS STUDIO · Panel dan studio siaran TikTok Live">
+<meta property="og:description" content="Satu aplikasi Windows untuk memantau live dan menyiarkan game dari PC. Coba gratis 7 hari.">
+<meta property="og:image" content="assets/panel.webp">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0817; --bg2:#120F26; --line:rgba(255,255,255,.09); --text:#F2F0FA; --mute:#A9A5C4;
+  --gold:#F7CF72; --gold2:#E39B2E; --violet:#8B6BFF; --live:#FF4D6D;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif; --body:'Figtree','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* bar atas */
+.nav{position:sticky;top:0;z-index:20;background:rgba(10,8,23,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 18px/1 var(--display);letter-spacing:.01em}
+.logo img{width:30px;height:30px}
+.nav nav{display:flex;gap:24px;margin-left:auto;font-size:15px;color:var(--mute)}
+.nav nav a{text-decoration:none}.nav nav a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:12px;font:700 16px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold2));color:#1b1204;box-shadow:0 10px 30px -10px rgba(247,207,114,.55)}
+.btn-gold:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.03)}.btn-ghost:hover{background:rgba(255,255,255,.07)}
+.nav .btn{min-height:40px;padding:0 18px;font-size:15px}
+
+/* hero */
+.hero{position:relative;padding:72px 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto 30%;height:620px;background:radial-gradient(closest-side,rgba(139,107,255,.28),transparent);pointer-events:none}
+.hero h1{font:800 clamp(40px,6.2vw,76px)/1.02 var(--display);letter-spacing:-.025em;margin:0 0 22px;max-width:15ch}
+.hero p.lead{font-size:clamp(18px,2vw,21px);color:var(--mute);max-width:46ch;margin:0 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.fine{font-size:14px;color:var(--mute);margin:16px 0 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:48px;align-items:center}
+.shot{position:relative;margin-right:-8vw}
+.shot img{border-radius:18px 0 0 18px;border:1px solid var(--line);border-right:0;box-shadow:0 40px 90px -20px rgba(0,0,0,.7),0 0 0 1px rgba(247,207,114,.08)}
+.shot figcaption{font-size:13px;color:var(--mute);margin-top:10px}
+
+/* bagian umum */
+section{padding:96px 0}
+h2{font:800 clamp(30px,4vw,46px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 14px}
+.sub{color:var(--mute);max-width:56ch;margin:0 0 48px}
+.alt{background:var(--bg2);border-block:1px solid var(--line)}
+
+/* fitur: dua kolom bertingkat, bukan kartu seragam */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.feat article{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:26px 0;border-top:1px solid var(--line)}
+.feat svg{width:44px;height:44px;padding:10px;border-radius:12px;background:rgba(247,207,114,.09);color:var(--gold)}
+.feat h3{font:700 20px/1.25 var(--display);margin:0 0 6px}
+.feat p{margin:0;color:var(--mute);font-size:16px}
+
+/* cara mulai: ini memang urutan */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;padding-top:20px;border-top:2px solid var(--gold)}
+.steps li::before{content:counter(s);display:block;font:800 44px/1 var(--display);color:var(--gold);margin-bottom:12px}
+.steps h3{font:700 20px/1.25 var(--display);margin:0 0 8px}
+.steps p{margin:0;color:var(--mute);font-size:16px}
+
+/* trial vs sewa */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.plan{border:1px solid var(--line);border-radius:20px;padding:36px;background:rgba(255,255,255,.02)}
+.plan.pri{border-color:rgba(247,207,114,.45);background:linear-gradient(180deg,rgba(247,207,114,.08),rgba(139,107,255,.05))}
+.plan h3{font:800 28px/1.1 var(--display);margin:0 0 6px}
+.plan .tag{color:var(--gold);font-weight:700;font-size:15px;margin:0 0 18px}
+.plan ul{margin:0 0 28px;padding-left:20px;color:var(--mute)}
+.plan li{margin:6px 0}
+
+/* FAQ */
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font:700 19px/1.4 var(--display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--mute);max-width:70ch}
+kbd{font:600 14px var(--body);padding:2px 8px;border-radius:6px;border:1px solid var(--line);background:rgba(255,255,255,.05)}
+
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+footer p{margin:0;max-width:62ch}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}.shot{margin-right:0}.shot img{border-radius:16px;border-right:1px solid var(--line)}
+  .feat,.plans,.steps{grid-template-columns:1fr}.nav nav{display:none}.nav .btn{margin-left:auto}
+  section{padding:68px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="assets/logo.svg" alt="" width="30" height="30">ADZKALABS STUDIO</a>
+    <nav aria-label="Navigasi">
+      <a href="#fitur">Fitur</a><a href="#mulai">Cara mulai</a><a href="#paket">Trial &amp; sewa</a><a href="#faq">Pertanyaan</a>
+    </nav>
+    <a class="btn btn-gold" href="#unduh">Unduh trial</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Live TikTok dari PC, semuanya di satu jendela.</h1>
+      <p class="lead">Pantau komentar, gift, dan penonton yang masuk, lalu siarkan game Anda langsung dari aplikasi yang sama. Tanpa pindah-pindah program.</p>
+      <div class="cta" id="unduh">
+        <a class="btn btn-gold" href="https://github.com/adzkapayment-sudo/adzkalabs-studio/releases/latest/download/ADZKALABS-STUDIO-Trial.zip">Unduh trial gratis 7 hari</a>
+        <a class="btn btn-ghost" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO">Tanya admin lewat WhatsApp</a>
+      </div>
+      <p class="fine">Untuk Windows 64-bit · ±78 MB · trial mulai otomatis saat aplikasi pertama dibuka</p>
+    </div>
+    <figure class="shot" style="margin-bottom:0">
+      <img src="assets/panel.webp" width="1600" height="900" alt="Tampilan panel ADZKALABS STUDIO: statistik penonton, komentar, follower baru, dan laci Studio siaran">
+      <figcaption>Tampilan asli panel dalam mode simulasi. Semua nama dan angka di atas hanya contoh.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="fitur">
+  <div class="wrap">
+    <h2>Yang Anda dapat di dalamnya</h2>
+    <p class="sub">Dibuat untuk streamer yang live sambil main game dan ingin semuanya terkendali dari satu layar.</p>
+    <div class="feat">
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.6"/></svg>
+        <div><h3>Pantau live secara real-time</h3><p>Jumlah penonton, like, koin gift, follower baru, dan siapa yang baru masuk, diperbarui langsung dari akun yang sedang live.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/></svg>
+        <div><h3>Komentar dan alert di satu tempat</h3><p>Komentar, gift, like, dan follow tampil berurutan, dengan peringkat gifter teratas dan efek suara cepat untuk menyapa penonton.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        <div><h3>Siaran dari PC ke TikTok</h3><p>Tampilkan layar game, kamera, dan mikrofon. Pilih tata letak Game + wajah, Game saja, atau Kamera saja, dan ganti kapan saja saat live.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        <div><h3>Game dari HP</h3><p>Cerminkan layar iPhone lewat AirPlay bawaan, atau pakai kabel (capture card atau scrcpy untuk Android). Gambar dan suara masuk ke studio.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+        <div><h3>Musik, marathon, dan teks di layar</h3><p>Putar playlist dari file PC atau tab browser, tampilkan judul, progres order, dan timer marathon yang tetap berjalan walau koneksi sempat putus.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.4 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21Z"/></svg>
+        <div><h3>Notifikasi donasi Sociabuzz</h3><p>Donasi masuk muncul sebagai kartu di layar siaran lengkap dengan pesan dan bunyi. Webhook-nya disiapkan otomatis oleh aplikasi.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+        <div><h3>Kondisi PC terlihat saat live</h3><p>CPU, RAM, penyimpanan, serta kecepatan upload dan download dengan meter, agar tahu kalau PC atau internet mulai tersendat.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 7.6 8 9 4.6-1.4 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <div><h3>Berjalan di PC Anda sendiri</h3><p>Panel dibuka dari komputer Anda dan tidak bisa diakses dari luar. Stream key tidak dicatat di log dan tidak dikirim ke mana pun selain TikTok.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="mulai" class="alt">
+  <div class="wrap">
+    <h2>Mulai dalam tiga langkah</h2>
+    <p class="sub">Tidak perlu instal rumit dan tidak perlu mendaftar akun.</p>
+    <ol class="steps">
+      <li><h3>Unduh dan ekstrak</h3><p>Unduh file ZIP, lalu ekstrak semua isinya ke satu folder. Jangan dijalankan dari dalam ZIP.</p></li>
+      <li><h3>Buka aplikasinya</h3><p>Klik dua kali <kbd>ADZKALABS STUDIO.exe</kbd>. Panel terbuka sendiri dan trial 7 hari langsung berjalan. Jendela hitam yang ikut muncul jangan ditutup selama live.</p></li>
+      <li><h3>Sambungkan dan live</h3><p>Ketik username TikTok untuk memantau, atau buka tombol Siaran, tempel Server URL dan Stream key dari tiktok.com, lalu mulai.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="paket">
+  <div class="wrap">
+    <h2>Coba dulu, sewa kalau cocok</h2>
+    <p class="sub">Trial memakai semua tampilan dan alat yang sama. Tidak perlu kartu atau pendaftaran.</p>
+    <div class="plans">
+      <div class="plan pri">
+        <h3>Trial</h3><p class="tag">Gratis · 7 hari</p>
+        <ul><li>Mulai otomatis di buka pertama</li><li>Satu kali per PC</li><li>Sisa hari terlihat di bawah logo</li></ul>
+        <a class="btn btn-gold" href="https://github.com/adzkapayment-sudo/adzkalabs-studio/releases/latest/download/ADZKALABS-STUDIO-Trial.zip">Unduh trial</a>
+      </div>
+      <div class="plan">
+        <h3>Sewa</h3><p class="tag">Per periode, lewat admin</p>
+        <ul><li>Dapat key lisensi atas nama Anda</li><li>Masukkan key lewat tombol "Masukkan lisensi"</li><li>Bisa diperpanjang tanpa instal ulang</li></ul>
+        <a class="btn btn-ghost" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO">Hubungi admin</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap" style="max-width:860px">
+    <h2>Pertanyaan yang sering muncul</h2>
+    <p class="sub">Yang paling sering ditanyakan sebelum mencoba.</p>
+    <details><summary>Windows menampilkan peringatan "Windows protected your PC". Aman?</summary><p>Peringatan itu muncul karena aplikasi belum memiliki tanda tangan digital berbayar, bukan karena ada yang salah. Klik <kbd>More info</kbd> lalu <kbd>Run anyway</kbd>. Bila Windows Firewall bertanya, izinkan untuk jaringan Pribadi.</p></details>
+    <details><summary>PC seperti apa yang dibutuhkan?</summary><p>Windows 64-bit dengan Chrome atau Edge terpasang. Untuk siaran sambil main game berat, pilih encoder kartu grafis di pengaturan agar CPU tidak terbebani.</p></details>
+    <details><summary>Apa yang terjadi setelah 7 hari trial?</summary><p>Aplikasi meminta key lisensi. Hubungi admin untuk sewa, lalu masukkan key di halaman aktivasi. Pengaturan Anda tetap tersimpan.</p></details>
+    <details><summary>Apakah stream key saya aman?</summary><p>Stream key hanya dipakai untuk mengirim siaran ke TikTok dan tidak ditulis ke log. Key hanya tersimpan di browser PC Anda jika Anda mencentang "Ingat stream key". Tetap perlakukan key seperti password.</p></details>
+    <details><summary>Bisa dipakai di HP atau Mac?</summary><p>Aplikasi berjalan di PC Windows. HP dipakai sebagai sumber game lewat AirPlay (iPhone) atau kabel, bukan sebagai tempat menjalankan aplikasi.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>ADZKALABS STUDIO adalah produk independen dan tidak berafiliasi dengan, atau didukung oleh, TikTok atau ByteDance. TikTok adalah merek dagang pemiliknya.</p>
+    <p>Admin: <a href="https://wa.me/6282178923317">WhatsApp +62 821-7892-3317</a> (Masterpiece_adzkalabs)</p>
+  </div>
+</footer>
+</body>
+</html>
