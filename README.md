@@ -1,7 +1,7 @@
 # ADZKALABS STUDIO
 
 Panel dan studio siaran untuk TikTok Live (Windows). Halaman info dan unduhan trial ada di
-https://adzkapayment-sudo.github.io/adzkalabs-studio/
+https://landing.adzkalabs.id/
 
 Unduhan terbaru ada di tab **Releases**. Repo ini hanya berisi halaman info; kode sumber aplikasi tidak dipublikasikan.
 
