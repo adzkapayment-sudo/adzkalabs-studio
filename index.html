@@ -272,6 +272,21 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
 .rv.in2{opacity:1;transform:none}
 @media (max-width:1000px){.stage::before{width:120%}.rays{width:900px;height:900px}}
 @media (prefers-reduced-motion:reduce){.stage::before,.rays,.btn-gold::after{animation:none}.rv{opacity:1;transform:none;transition:none}.prog{display:none}}
+
+/* ---------- harga ---------- */
+.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}
+.plan{display:flex;flex-direction:column}
+.plan ul{flex:1}
+.plan .btn{align-self:flex-start}
+.promo{align-self:flex-start;margin:0 0 16px;padding:5px 12px;border-radius:999px;font:700 12.5px/1 var(--body);letter-spacing:.04em;color:var(--ruby);background:rgba(255,77,109,.12);border:1px solid rgba(255,77,109,.35)}
+.promo.free{color:var(--mute);background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.promo.gold{color:#1b1204;background:var(--foil);border:0}
+.price{display:flex;align-items:baseline;gap:8px;margin:4px 0 16px}
+.price b{font:800 clamp(34px,3.2vw,44px)/1 var(--display);letter-spacing:-.02em}
+.plan.pri .price b{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price small{color:var(--mute);font-size:15px}
+.save{margin:-4px 0 18px;color:var(--gold);font-size:14.5px;font-weight:600}
+@media (max-width:1000px){.plans{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -450,17 +465,28 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
   <div class="wrap">
     <p class="kick">Paket</p>
     <h2>Coba dulu, sewa kalau cocok.</h2>
-    <p class="sub">Trial memakai semua tampilan dan alat yang sama dengan versi sewa. Tanpa kartu, tanpa pendaftaran.</p>
+    <p class="sub">Trial memakai semua tampilan dan alat yang sama dengan versi sewa. Tanpa kartu, tanpa pendaftaran. Harga sewa di bawah masih harga promo.</p>
     <div class="plans">
-      <div class="plan pri">
+      <div class="plan">
+        <span class="promo free">Mulai dari sini</span>
         <h3>Trial</h3><p class="tag">Gratis · 7 hari</p>
-        <ul><li>Mulai otomatis saat aplikasi pertama dibuka</li><li>Satu kali per PC</li><li>Sisa hari terlihat di bawah logo</li></ul>
-        <a class="btn btn-gold" href="https://github.com/adzkapayment-sudo/adzkalabs-studio/releases/latest/download/ADZKALABS-STUDIO.zip">Unduh trial</a>
+        <ul><li>Mulai otomatis saat aplikasi pertama dibuka</li><li>Satu kali per PC</li><li>Semua tampilan dan alat sama dengan versi sewa</li></ul>
+        <a class="btn btn-ghost" href="https://github.com/adzkapayment-sudo/adzkalabs-studio/releases/latest/download/ADZKALABS-STUDIO.zip">Unduh trial</a>
       </div>
       <div class="plan">
-        <h3>Sewa</h3><p class="tag">Per periode, lewat admin</p>
-        <ul><li>Key lisensi atas nama Anda</li><li>Masukkan lewat tombol "Masukkan lisensi"</li><li>Bisa diperpanjang tanpa instal ulang</li></ul>
-        <a class="btn btn-ghost" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO">Hubungi admin</a>
+        <span class="promo">Harga promo</span>
+        <h3>Sewa 1 bulan</h3>
+        <p class="price"><b>Rp50.000</b><small>/ bulan</small></p>
+        <ul><li>Key lisensi atas nama Anda untuk 1 PC</li><li>Masukkan lewat tombol "Masukkan lisensi"</li><li>Bisa diperpanjang tanpa instal ulang</li></ul>
+        <a class="btn btn-ghost" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO%201%20bulan%20(Rp50.000)">Hubungi admin</a>
+      </div>
+      <div class="plan pri">
+        <span class="promo gold">Paling hemat</span>
+        <h3>Sewa 6 bulan</h3>
+        <p class="price"><b>Rp250.000</b><small>/ 6 bulan</small></p>
+        <p class="save">Hemat Rp50.000 dibanding bayar bulanan (6 &times; Rp50.000).</p>
+        <ul><li>Semua yang ada di sewa 1 bulan</li><li>Rata-rata sekitar Rp41.700 per bulan</li><li>Satu kali bayar, aman untuk setengah tahun</li></ul>
+        <a class="btn btn-gold" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO%206%20bulan%20(Rp250.000)">Hubungi admin</a>
       </div>
     </div>
   </div>
@@ -583,7 +609,7 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
   addEventListener('scroll',()=>{if(!tk)tk=requestAnimationFrame(upd)},{passive:true});upd();
   if(reduce)return;
   // kemunculan sekali saat terlihat
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in2');io.unobserve(e.target)}}),{threshold:.15});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in2');io.unobserve(e.target)}}),{threshold:.05});
   document.querySelectorAll('.feat article,.how li,.plan,.plaque,.card').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%3)*0.09+'s');io.observe(el)});
   // debu emas
   const mk=host=>{const c=document.createElement('canvas');c.className='dust';c.setAttribute('aria-hidden','true');host.prepend(c);
