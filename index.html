@@ -357,6 +357,8 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
 .ex p{margin:0;color:#B7B2CA;font-size:16px}
 .ex .by{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line2);color:var(--mute);font-size:14.5px}
 .ex .by b{color:var(--gold);font-weight:600}
+.ex-h{font:600 clamp(30px,3.6vw,46px)/1.1 var(--display);margin:104px 0 12px;font-variant-numeric:lining-nums}
+.ex-sub{margin-bottom:44px}
 .ex-note{margin:44px 0 0;color:var(--mute);font-size:14px;max-width:70ch}
 @media (max-width:900px){
   .ex-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin-inline:-24px;padding:0 24px 8px;scrollbar-width:none}
@@ -492,7 +494,7 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
   <div class="wrap">
     <p class="kick">Contoh hasil siaran</p>
     <h2>Seperti inilah live Anda di layar penonton.</h2>
-    <p class="sub">Tiga gaya siaran yang bisa dipilih dari satu panel. Gambar di bawah diambil dari keluaran asli aplikasi dalam mode simulasi.</p>
+    <p class="sub">Gaya siaran yang bisa dipilih dari satu panel, termasuk empat game interaktif. Gambar diambil dari keluaran asli aplikasi dalam mode simulasi.</p>
 
     <div class="ex-grid">
       <figure class="ex">
@@ -503,8 +505,8 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
       </figure>
       <figure class="ex">
         <div class="ph"><img src="assets/contoh-interaktif.webp" width="720" height="1000" loading="lazy" alt="Contoh game interaktif Perang Pasukan: penonton memilih Tim Merah atau Tim Biru lewat komentar dan gift"></div>
-        <h3>Game interaktif</h3>
-        <p>Perang Pasukan: penonton memilih Tim Merah atau Biru lewat komentar, lalu gift dan like mengirim pasukan. Tidak perlu game dari luar.</p>
+        <h3>Perang Pasukan</h3>
+        <p>Penonton memilih Tim Merah atau Biru lewat komentar, lalu gift dan like mengirim pasukan. Salah satu dari empat game interaktif bawaan.</p>
         <p class="by"><b>Cocok untuk</b> memancing komentar, gift, dan penonton yang betah.</p>
       </figure>
       <figure class="ex">
@@ -512,6 +514,28 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
         <h3>Ngobrol video langsung</h3>
         <p>Mode Live chat untuk video chat acak. Lawan bicara dari tab browser dan kamera Anda tampil berdampingan, lengkap dengan penanda Tersambung.</p>
         <p class="by"><b>Cocok untuk</b> ngobrol bareng orang baru sambil ditonton ramai.</p>
+      </figure>
+    </div>
+    <h3 class="ex-h">Tiga game interaktif lainnya</h3>
+    <p class="sub ex-sub">Semuanya dimainkan penonton lewat komentar, like, dan gift. Tidak perlu game dari luar dan tidak perlu alat tambahan.</p>
+    <div class="ex-grid">
+      <figure class="ex">
+        <div class="ph"><img src="assets/contoh-balap.webp" width="720" height="1000" loading="lazy" alt="Contoh game Balap Provinsi: sepuluh lajur daerah berlomba ke garis finis"></div>
+        <h3>Balap Provinsi</h3>
+        <p>Penonton mengetik nama daerahnya, lalu komentar, like, dan gift mendorong daerahnya ke garis finis. Sepuluh lajur, juara tercatat.</p>
+        <p class="by"><b>Cocok untuk</b> memancing rasa bangga daerah dan komentar tanpa henti.</p>
+      </figure>
+      <figure class="ex">
+        <div class="ph"><img src="assets/contoh-panjat.webp" width="720" height="1000" loading="lazy" alt="Contoh game Panjat Menara: pendaki menaiki menara, penonton membantu atau menjegal"></div>
+        <h3>Panjat Menara</h3>
+        <p>Ketik NAIK untuk membantu, JEGAL untuk menarik pendaki ke bawah. Like dan gift mendorong ke puncak, gift besar menyalakan roket.</p>
+        <p class="by"><b>Cocok untuk</b> adu seru antara yang membantu dan yang menjegal.</p>
+      </figure>
+      <figure class="ex">
+        <div class="ph"><img src="assets/contoh-tebak.webp" width="720" height="1000" loading="lazy" alt="Contoh game Tebak Kata: huruf terbuka sebagian, daftar tebakan, dan papan skor"></div>
+        <h3>Tebak Kata</h3>
+        <p>Penonton menebak kata lewat komentar. Gift membuka satu huruf, like terus-menerus memberi petunjuk gratis, ada papan skor.</p>
+        <p class="by"><b>Cocok untuk</b> penonton yang belum mau kirim gift tapi ingin ikut main.</p>
       </figure>
     </div>
     <p class="ex-note">Wajah dan nama pada contoh adalah ilustrasi. Pada siaran asli, yang tampil adalah kamera dan layar Anda sendiri.</p>
