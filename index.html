@@ -304,6 +304,8 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
 .price b{font:700 clamp(40px,3.8vw,54px)/1 var(--display);letter-spacing:-.005em;font-variant-numeric:lining-nums}
 .plan.pri .price b{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
 .price small{color:var(--mute);font-size:15px}
+.plan .alt{display:block;width:max-content;background:none!important;box-shadow:none!important;padding:0;margin:12px 0 0 6px;font-size:13.5px;color:var(--mute);text-decoration:underline;text-underline-offset:3px}
+.plan .alt:hover{color:inherit}
 .save{margin:-4px 0 18px;color:var(--gold);font-size:14.5px;font-weight:600}
 @media (max-width:1000px){.plans{grid-template-columns:1fr}}
 
@@ -368,7 +370,7 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "ADZKALABS STUDIO", "url": "https://studio.adzkalabs.id/", "applicationCategory": "MultimediaApplication", "operatingSystem": "Windows 10, Windows 11 (64-bit)", "description": "Panel dan studio siaran TikTok Live untuk PC Windows. Pantau komentar, gift, dan penonton, lalu siarkan game dari PC, iPhone (AirPlay), atau Android (USB/WiFi) tanpa alat tambahan.", "image": "https://studio.adzkalabs.id/assets/og.jpg", "inLanguage": "id", "author": {"@type": "Organization", "name": "ADZKALABS", "url": "https://studio.adzkalabs.id/"}, "offers": [{"@type": "Offer", "name": "Trial 7 hari", "price": "0", "priceCurrency": "IDR", "availability": "https://schema.org/InStock"}, {"@type": "Offer", "name": "Sewa 1 bulan (harga promo)", "price": "50000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock"}, {"@type": "Offer", "name": "Sewa 6 bulan (harga promo)", "price": "250000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "ADZKALABS STUDIO", "url": "https://studio.adzkalabs.id/", "inLanguage": "id"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Windows menampilkan peringatan \"Windows protected your PC\". Aman?", "acceptedAnswer": {"@type": "Answer", "text": "Peringatan itu muncul karena aplikasi belum memiliki tanda tangan digital berbayar, bukan karena ada yang salah. Klik More info lalu Run anyway. Bila Windows Firewall bertanya, izinkan untuk jaringan Pribadi."}}, {"@type": "Question", "name": "PC seperti apa yang dibutuhkan?", "acceptedAnswer": {"@type": "Answer", "text": "Windows 64-bit dengan Chrome atau Edge terpasang. Untuk siaran sambil main game berat, pilih encoder kartu grafis di pengaturan agar CPU tidak terbebani."}}, {"@type": "Question", "name": "Apa yang terjadi setelah 7 hari trial?", "acceptedAnswer": {"@type": "Answer", "text": "Aplikasi meminta key lisensi. Hubungi admin untuk sewa, lalu masukkan key di halaman aktivasi. Pengaturan Anda tetap tersimpan."}}, {"@type": "Question", "name": "Apakah stream key saya aman?", "acceptedAnswer": {"@type": "Answer", "text": "Stream key hanya dipakai untuk mengirim siaran ke TikTok dan tidak ditulis ke log. Key tersimpan di browser PC Anda hanya jika Anda mencentang \"Ingat stream key\". Tetap perlakukan key seperti password."}}, {"@type": "Question", "name": "Bisa dipakai di HP atau Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Aplikasi berjalan di PC Windows. HP dipakai sebagai sumber game: iPhone lewat AirPlay bawaan, Android lewat kabel USB atau WiFi, tanpa alat tambahan. HP bukan tempat menjalankan aplikasinya."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Windows menampilkan peringatan \"Windows protected your PC\". Aman?", "acceptedAnswer": {"@type": "Answer", "text": "Peringatan itu muncul karena aplikasi belum memiliki tanda tangan digital berbayar, bukan karena ada yang salah. Klik More info lalu Run anyway. Bila Windows Firewall bertanya, izinkan untuk jaringan Pribadi."}}, {"@type": "Question", "name": "PC seperti apa yang dibutuhkan?", "acceptedAnswer": {"@type": "Answer", "text": "Windows 64-bit dengan Chrome atau Edge terpasang. Untuk siaran sambil main game berat, pilih encoder kartu grafis di pengaturan agar CPU tidak terbebani."}}, {"@type": "Question", "name": "Apa yang terjadi setelah 7 hari trial?", "acceptedAnswer": {"@type": "Answer", "text": "Aplikasi meminta key lisensi. Beli paket sewa di bagian Paket (bayar lewat QRIS, transfer bank, atau e-wallet), admin mengirim key ke WhatsApp Anda, lalu masukkan key di halaman aktivasi. Pengaturan Anda tetap tersimpan."}}, {"@type": "Question", "name": "Apakah stream key saya aman?", "acceptedAnswer": {"@type": "Answer", "text": "Stream key hanya dipakai untuk mengirim siaran ke TikTok dan tidak ditulis ke log. Key tersimpan di browser PC Anda hanya jika Anda mencentang \"Ingat stream key\". Tetap perlakukan key seperti password."}}, {"@type": "Question", "name": "Bisa dipakai di HP atau Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Aplikasi berjalan di PC Windows. HP dipakai sebagai sumber game: iPhone lewat AirPlay bawaan, Android lewat kabel USB atau WiFi, tanpa alat tambahan. HP bukan tempat menjalankan aplikasinya."}}]}</script>
 </head>
 <body>
 
@@ -658,7 +660,8 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
         <h3>Sewa sebulan</h3>
         <p class="price"><b>Rp50.000</b><small>/ bulan</small></p>
         <ul><li>Key lisensi atas nama Anda untuk 1 PC</li><li>Masukkan lewat tombol "Masukkan lisensi"</li><li>Bisa diperpanjang tanpa instal ulang</li></ul>
-        <a class="btn btn-ghost" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO%201%20bulan%20(Rp50.000)">Hubungi admin</a>
+        <a class="btn btn-ghost" href="https://adzkalabs.id/beli?paket=1b">Beli sekarang</a>
+        <a class="alt" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO%201%20bulan%20(Rp50.000)">atau tanya admin dulu</a>
       </div>
       <div class="plan pri">
         <span class="promo gold">Paling hemat</span>
@@ -666,7 +669,8 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
         <p class="price"><b>Rp250.000</b><small>/ 6 bulan</small></p>
         <p class="save">Hemat Rp50.000 dibanding bayar bulanan (6 &times; Rp50.000).</p>
         <ul><li>Semua yang ada di sewa sebulan</li><li>Rata-rata sekitar Rp41.700 per bulan</li><li>Satu kali bayar, aman untuk setengah tahun</li></ul>
-        <a class="btn btn-gold" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO%206%20bulan%20(Rp250.000)">Hubungi admin</a>
+        <a class="btn btn-gold" href="https://adzkalabs.id/beli?paket=6b">Beli sekarang</a>
+        <a class="alt" href="https://wa.me/6282178923317?text=Halo%20admin%2C%20saya%20mau%20sewa%20ADZKALABS%20STUDIO%206%20bulan%20(Rp250.000)">atau tanya admin dulu</a>
       </div>
     </div>
   </div>
@@ -680,7 +684,7 @@ section+section:not(.final)::after,.marq+section::after{content:"";position:abso
     <p class="sub">Jawaban singkat sebelum Anda mencoba.</p>
     <details><summary>Windows menampilkan peringatan "Windows protected your PC". Aman?</summary><p>Peringatan itu muncul karena aplikasi belum memiliki tanda tangan digital berbayar, bukan karena ada yang salah. Klik <kbd>More info</kbd> lalu <kbd>Run anyway</kbd>. Bila Windows Firewall bertanya, izinkan untuk jaringan Pribadi.</p></details>
     <details><summary>PC seperti apa yang dibutuhkan?</summary><p>Windows 64-bit dengan Chrome atau Edge terpasang. Untuk siaran sambil main game berat, pilih encoder kartu grafis di pengaturan agar CPU tidak terbebani.</p></details>
-    <details><summary>Apa yang terjadi setelah 7 hari trial?</summary><p>Aplikasi meminta key lisensi. Hubungi admin untuk sewa, lalu masukkan key di halaman aktivasi. Pengaturan Anda tetap tersimpan.</p></details>
+    <details><summary>Apa yang terjadi setelah 7 hari trial?</summary><p>Aplikasi meminta key lisensi. Beli paket sewa di bagian Paket (bayar lewat QRIS, transfer bank, atau e-wallet), admin mengirim key ke WhatsApp Anda, lalu masukkan key di halaman aktivasi. Pengaturan Anda tetap tersimpan.</p></details>
     <details><summary>Apakah stream key saya aman?</summary><p>Stream key hanya dipakai untuk mengirim siaran ke TikTok dan tidak ditulis ke log. Key tersimpan di browser PC Anda hanya jika Anda mencentang "Ingat stream key". Tetap perlakukan key seperti password.</p></details>
     <details><summary>Bisa dipakai di HP atau Mac?</summary><p>Aplikasi berjalan di PC Windows. HP dipakai sebagai sumber game: iPhone lewat AirPlay bawaan, Android lewat kabel USB atau WiFi, tanpa alat tambahan. HP bukan tempat menjalankan aplikasinya.</p></details>
   </div>
